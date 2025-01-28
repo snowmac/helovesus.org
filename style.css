@@ -1,14 +1,14 @@
 * {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 2vw;
+  font-size: 1.2rem;
   line-height: 1.5rem;
 }
 h1, h2, h3 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
-h1 { font-size: 4vw;}
-h2 { font-size: 3vw;}
-h3 { font-size: 2vw;}
+h1 { font-size: 3rem;}
+h2 { font-size: 2rem;}
+h3 { font-size: 1.6rem;}
 
 body {
   margin: 0;
@@ -44,6 +44,19 @@ body::before {
   max-width: 800px;
   min-height: 400px;
   z-index: 2;
+}
+
+/* Mobile Font Size */
+@media (max-width: 768px) {
+  * {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+  h1 { font-size: 4rem;}
+  h2 { font-size: 3rem;}
+  h3 { font-size: 2.2rem;}
+
+  
 }
 
 /* Utility classes */
