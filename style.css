@@ -45,3 +45,6 @@ body::before {
   min-height: 400px;
   z-index: 2;
 }
+
+/* Utility classes */
+.center { text-align: center; }
