@@ -23,8 +23,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "Adam Bourg"
+          git config --global user.email "adam.bourg@gmail.com"
           git add logs.txt
           git commit -m "Heartbeat: $(date -u)" || echo "No changes to commit"
           git push
