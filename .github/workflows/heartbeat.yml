@@ -1,0 +1,30 @@
+name: Daily Heartbeat Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check helovesus.org status
+        run: |
+          URL="https://helovesus.org"
+          STATUS_CODE=$(curl -o /dev/null -s -w "%{http_code}\n" $URL)
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          echo "$URL $STATUS_CODE - $TIMESTAMP" >> logs.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add logs.txt
+          git commit -m "Heartbeat: $(date -u)" || echo "No changes to commit"
+          git push
